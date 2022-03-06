@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { ParallaxProvider } from "react-scroll-parallax";
+import WrappedComponent from "./components/WrappedComponent";
 
 function App() {
+  // const parallax = useParallax<HTMLDivElement>({
+  //   rotate: [0, 360],
+  //   scale: [0.5, 1, "easeInQuad"],
+  // });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="_App"
+      style={{
+        background: "grey",
+        width: "300vw",
+        height: "100vh",
+        overflowX: "scroll",
+        overflowY: "hidden",
+      }}
+    >
+      <ParallaxProvider scrollAxis="horizontal">
+        <WrappedComponent />
+      </ParallaxProvider>
     </div>
   );
 }
